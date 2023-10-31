@@ -13,5 +13,5 @@ CHIP Add16 {
     OUT out[16];
 
     PARTS:
-   // Put you code here:
+   HalfAdder(a=a[0], b=b[0], sum=out[0], carry=Carry1);
 }
