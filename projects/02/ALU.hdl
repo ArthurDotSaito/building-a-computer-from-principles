@@ -55,5 +55,8 @@ CHIP ALU {
    //f control
    And16(a=MuxXOut, b=MuxYOut, out=fEqualsZeroOut);
    Add16(a=MuxXOut, b=MuxYOut, out=fEqualsOneOut);
-   Mux16(a=fEqualsZeroOut, b=fEqualsOneOut, sel=f, out=out);
+   Mux16(a=fEqualsZeroOut, b=fEqualsOneOut, sel=f, out=MuxFOut);
+
+   //no control
+   Not16(in=MuxFOut, out=NotNoOut);
 }
