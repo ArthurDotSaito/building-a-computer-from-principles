@@ -51,4 +51,9 @@ CHIP ALU {
    Mux16(a=y, b=false, sel=zy, out=Mux16TwoOut);
    Not16(in=Mux16TwoOut, out=Not16TwoOut);
    Mux16(a=Mux16TwoOut, b=Not16TwoOut, sel=ny, out=MuxYOut);
+
+   //f control
+   And16(a=MuxXOut, b=MuxYOut, out=fEqualsZeroOut);
+   Add16(a=MuxXOut, b=MuxYOut, out=fEqualsOneOut);
+   Mux16(a=fEqualsZeroOut, b=fEqualsOneOut, sel=f, out=out);
 }
