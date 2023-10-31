@@ -57,6 +57,17 @@ CHIP ALU {
    Add16(a=MuxXOut, b=MuxYOut, out=fEqualsOneOut);
    Mux16(a=fEqualsZeroOut, b=fEqualsOneOut, sel=f, out=MuxFOut);
 
-   //no control
+   //no , ng
+   //out[15] represents the most significant bit and the signal (if out[15] == 0, then the number is positive or zero and if out[15] == 1, then the number is negative)
    Not16(in=MuxFOut, out=NotNoOut);
+   Mux16(a=MuxFOut, b=NotNoOut, sel=no, out=out, out[15]=ng, out[0..7]=ZROne, out[8..15]=ZRTwo);
+
+   //zr
+   // Verify if ZROne is all zeros and ZRTwo is all zeros. If yes, OrZROut=1 and I need to invert it.
+
+   Or8Way(in=ZROne, out=Or8WayOneOut);
+   Or8Way(in=ZRTwo, out=Or8WayTwoOut);
+   Or(a=Or8WayOneOut, b=Or8WayTwoOut, out=OrZROut);
+   Not(in=OrZROut, out=zr);
+
 }
