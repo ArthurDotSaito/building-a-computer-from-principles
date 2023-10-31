@@ -18,4 +18,5 @@ CHIP Mux {
     And(a=a, b=notSelOut, out=andAOut);
     And(a=b, b=sel, out=andBOut);
     Xor(a=andAOut, b=andBOut, out=out);
+    Mux
 }
