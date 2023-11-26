@@ -38,3 +38,16 @@ LOOP:
 END;
 
 ```
+
+The first lines of code just load variables into memory slots.
+
+the LOOP is the part of the code which do the multiplitication, in fact. The loop performs addition of the value in R1 to the value in R2 a number of times equal to the value in R0. Essentially, you are performing multiplication through successive additions.
+Example: 4 x 4 is nothing more than perform 4 + 4 + 4. And is equal 16.
+
+So, how the loop works:
+
+- Load and Add: First, the loop loads the value of R1 into the temporary variable D and then adds this value to R2. This action is equivalent to R2 = R2 + R1.
+
+- Decrement and Exit Condition: After each addition, the value in R0 (which determines how many times the loop should be executed) is decremented by 1 (R0 = R0 - 1). Then, it is checked whether R0 has reached zero, which would indicate that the loop must be terminated. If R0 is zero, the program jumps to the END label, exiting the loop.
+
+- Repetition: If R0 is not zero, the program jumps back to the beginning of the loop (LOOP), repeating the addition and decrement process.
