@@ -28,7 +28,7 @@ D=A+D
 @maxaddress
 M=D
 
-(LOOP):
+(LOOP)
     @SCREEN
     D=A
 
