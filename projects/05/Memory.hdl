@@ -33,7 +33,7 @@ CHIP Memory {
     And(a=load , b=selectRAM, out=loadRAM);
     And(a=load , b=selectScreen, out=loadScreen);
 
-    RAM16K(in=in, load=loadRAM, address=address[0..13] out=RAMout);
+    RAM16K(in=in, load=loadRAM, address=address[0..13], out=RAMout);
     Keyboard(out=keyboardOut);
     Screen(in=in, load=loadScreen, address=address[0..12], out=screenOut);
 
