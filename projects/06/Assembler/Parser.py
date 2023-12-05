@@ -34,7 +34,7 @@ class HackAssemblerParser():
         return ''.join(c for c in self.current_command if c not in '()@/')
 
     def advance(self):
-        if self.current_command == None:
+        if self.current_command is None:
             self.current_command = self.input_file.readline()
         else:
             self.current_command = self.next_line
