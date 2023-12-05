@@ -1,4 +1,4 @@
-from HackAssembler import HackAssembler
+from hack_assembler import HackAssembler
 
 def main():
     asm_input_file = 'seu_programa.asm'  
